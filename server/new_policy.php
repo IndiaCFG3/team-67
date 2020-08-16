@@ -1,10 +1,6 @@
 <?php
     include("connection.php");
     $response = array();
-    if (!isset($_SESSION['userid']) && !isset($_SESSION['isadmin']) && $_SESSION['isadmin']!='1'){
-        header("Location:http://localhost/home");
-        return;
-    }
 
     //Required Details
     if(!isset($_POST['name']) || !isset($_POST['description'])
@@ -28,7 +24,7 @@
     $id = substr($id,0,30);
 
     //Insert into MYSQL
-    $insert = $mysqli->query("INSERT INTO policy(id,name,description,maxsalary,locationavailable) VALUES('$id','$name','$description',$maxsalary,'$locationavailable')");
+    $insert = $mysqli->query("insert into policy values('$name','$description',$maxsalary,'$locationavailable','$link','$id')");
     if($insert){
         $response["success"] = "Policy is added successfully!";
         //echo json_encode($response);
