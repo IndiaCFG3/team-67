@@ -55,7 +55,7 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="user.html">Home</a></li>
+      <li class="active"><a href="user.php">Home</a></li>
       <li><a href="polform.html">ADD POLICY</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
