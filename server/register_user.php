@@ -1,7 +1,7 @@
 <?php
     include("connection.php");
     $response = array();
-    if (!isset($_SESSION['userid'])){
+    if (isset($_SESSION['userid'])){
         header("Location:http://localhost/home");
         return;
     }
@@ -12,9 +12,13 @@
         || !isset($_POST['gender']) || !isset($_POST['annualincome'])
         || !isset($_POST['familymember'])|| !isset($_POST['ismember']) 
       ){
-        echo "Please fill in the details!";
+        $response["error"] = "Please fill in the details!";
+
+        echo json_encode($response);
         return;
     }  
+
+    //Sanitize string 
     $firstname = filter_var($_POST['firstname'],FILTER_SANITIZE_STRING);
     $lastname = filter_var($_POST['lastname'],FILTER_SANITIZE_STRING);
     $state = filter_var($_POST['state'],FILTER_SANITIZE_STRING);
@@ -30,9 +34,12 @@
         $volunteerid = filter_var($_POST['volunteerid'],FILTER_SANITIZE_STRING);
     }
 
+    //Set User ID
     $randomString = "1092837465qazwsxedcrfvtgbyhnuasdasvasqweccjmikolp4509876wsdfvhn";
     $id = str_shuffle($randomString);
     $id = substr($id,0,30);
+
+    //Insert into MYSQL
     $insert = $mysqli->query("INSERT INTO users(id,firstname,lastname,state,city,address,phoneno,gender,annualincome,familymember,ismember,isadmin,volunteerid) VALUES('$id','$firstname','$lastname','$state','$city','$address','$phoneno','$gender',$annualincome,'$familymember',$ismember,0)");
     if($insert){
 

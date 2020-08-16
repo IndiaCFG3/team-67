@@ -7,7 +7,7 @@
     }
     
     //Required Details
-    if(!isset($_POST['name']) || !isset($_POST['description']) 
+    if(!isset($_POST['id']) || !isset($_POST['name']) || !isset($_POST['description']) 
     || !isset($_POST['maxsalary']) || !isset($_POST['locationavailable'])
     || !isset($_POST['link'])){
         $response["error"] = "Please fill in the details!";
@@ -21,16 +21,12 @@
     $maxsalary = $_POST['maxsalary'];
     $locationavailable = filter_var($_POST['locationavailable'],FILTER_SANITIZE_STRING);  
     $link = filter_var($_POST['link'],FILTER_SANITIZE_STRING);
+    $id = filter_var($_POST['id'],FILTER_SANITIZE_STRING);
 
-    //Set Policy ID
-    $randomString = "1092837465qazwsxedcrfvtgbyhnuasdasvasqweccjmikolp4509876wsdfvhn";
-    $id = str_shuffle($randomString);
-    $id = substr($id,0,30);
-
-    //Insert into MYSQL
-    $insert = $mysqli->query("INSERT INTO policy(id,name,description,maxsalary,locationavailable) VALUES('$id','$name','$description',$maxsalary,'$locationavailable')");
-    if($insert){
-        $response["success"] = "Policy is added successfully!";
+    $query = "UPDATE policy SET name='$name', description='$description',maxsalary=$maxsalary,locationavailable = '$locationavailable',link= '$link' WHERE id='$id'; ";
+    $result = $mysql->query($query);
+    if($result){
+        $response["success"] = "Policy is modified successfully!";
         echo json_encode($response);
         return;
     }else{        
