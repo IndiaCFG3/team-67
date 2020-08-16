@@ -44,6 +44,11 @@
 
     //Insert into MYSQL
     $insert = $mysqli->query("INSERT INTO users(id,firstname,lastname,state,city,address,phoneno,gender,annualincome,familymember,ismember,isadmin,volunteerid) VALUES('$id','$firstname','$lastname','$state','$city','$address','$phoneno','$gender',$annualincome,'$familymember',$ismember,0,'$volunteerid')");
+    $response["success"] = "Account is Registered successfully!";
+    $response["userid"] = $id;
+    $_SESSION["userid"] = $id;
+    header("location:user.php",true,307);
+    
     if($insert){
 /*        //Send SMS to Volunteer if not Not null
         if($volunteerid!=null){
@@ -70,10 +75,11 @@
         header("location:user.php",true,307);
         //echo json_encode($response);
         return;
-    } else{
+    }
+     /*else{
 
         $response["error"] = "We are having some troubles shortening your URL. Please try again later!";
 
         echo json_encode($response);
-    }
+    }*/
 ?>
