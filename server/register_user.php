@@ -67,7 +67,7 @@
         $response["success"] = "Account is Registered successfully!";
         $response["userid"] = $id;
         $_SESSION["userid"] = $id;
-        header("location:http://localhost/user.php",true,307);
+        header("location:user.php",true,307);
         //echo json_encode($response);
         return;
     } else{
