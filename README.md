@@ -23,8 +23,10 @@
  - Grant 'script' all privileges to database 'cfg2020'.
  - Import cfg2020.sql into mysql.
  
- Currently the web server is hosted at http://172.13.19.138/
- - User flow starts from these endponts -
+## Steps to run
+ - Connect to the AWS EC2 Instance via AWS Web Client and Putty in Windows (or SSH in Linux distribution)
+ - Connect to the IP: http://172.13.19.138/
+ - User flow starts from these endponts.
  
  http://172.13.19.138/ <br>
  http://172.13.19.138/register.html <br>
