@@ -1,10 +1,13 @@
 <?php
     include("connection.php");
+    session_start();
     $response = array();
+/*
     if (isset($_SESSION['userid'])){
         header("Location:http://localhost/home");
         return;
     }
+*/
     //Required Details
     if(!isset($_POST['firstname']) || !isset($_POST['lastname'])
     || !isset($_POST['state']) || !isset($_POST['city'])
@@ -62,17 +65,15 @@
         }
 */
         $response["success"] = "Account is Registered successfully!";
-
         $response["userid"] = $id;
         $_SESSION["userid"] = $id;
-        echo json_encode($response);
+        header("Location:user.php");
+        //echo json_encode($response);
         return;
     } else{
 
         $response["error"] = "We are having some troubles shortening your URL. Please try again later!";
 
         echo json_encode($response);
-
     }
-
 ?>
