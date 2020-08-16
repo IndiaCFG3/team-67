@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><a href="user.html">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<div id="login-form">
+    <form method="post" autocomplete="off">
+
+        <div class="col-md-12">
+
+            <div class="form-group">
+                <h2 class="">Add a Policy</h2>
+            </div>
+
+            <div class="form-group">
+                <hr/>
+            </div>
+
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <input type="text" name="name" class="form-control" placeholder="Enter Name of Policy" required/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <input type="text" name="description" class="form-control" placeholder="Enter Description" required/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <input type="number" name="maxsalary" class="form-control" placeholder="Enter Max Salary"
+                           required/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <input type="text" name="link" class="form-control" placeholder="Location" required/>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <input type="text" name="link" class="form-control" placeholder="Link for Policy Website" required/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn    btn-block btn-primary" name="editpolicy" id="editpolicy">Update</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
