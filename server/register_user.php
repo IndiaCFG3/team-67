@@ -48,7 +48,7 @@
     $response["userid"] = $id;
     $_SESSION["userid"] = $id;
     header("location:user.php",true,307);
-    
+
     if($insert){
 /*        //Send SMS to Volunteer if not Not null
         if($volunteerid!=null){

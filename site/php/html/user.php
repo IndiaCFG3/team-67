@@ -96,7 +96,7 @@
     <th>Link</th>
   </tr>
   <?php
-  while($row=$result->fetch_assoc()) {
+  while($row=$policies->fetch_assoc()) {
   ?>
    <tr>
      <th><?php echo $row['name'] ?></th>
