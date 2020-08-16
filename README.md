@@ -21,10 +21,11 @@
  - Create a database 'cfg2020'
  - Create a user 'script' with password 'pass' on mysql.
  - Grant 'script' all privileges to database 'cfg2020'.
+ - Import cfg2020.sql into mysql.
  
  Currently the web server is hosted at http://172.13.19.138/
  - User flow starts from these endponts -
  
- http://172.13.19.138/
- http://172.13.19.138/register.html
- http://172.13.19.138/admin.php
+ http://172.13.19.138/ <br>
+ http://172.13.19.138/register.html <br>
+ http://172.13.19.138/admin.php <br>
