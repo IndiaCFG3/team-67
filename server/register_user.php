@@ -43,6 +43,24 @@
     $insert = $mysqli->query("INSERT INTO users(id,firstname,lastname,state,city,address,phoneno,gender,annualincome,familymember,ismember,isadmin,volunteerid) VALUES('$id','$firstname','$lastname','$state','$city','$address','$phoneno','$gender',$annualincome,'$familymember',$ismember,0)");
     if($insert){
 
+        //Send SMS to Volunteer if not Not null
+        if($volunteerid!=null){
+            $res = $mysqli->query("SELECT phoneno FROM volunteers WHERE id='$id'");
+            while($row = $res->fetch_assoc()){
+                $phoneno = $row["phoneno"];
+                //Send SMS Code Goes Here
+            }
+            
+        }
+
+        
+        //Send SMS to NGOAgent
+        $res = $mysqli->query("SELECT phoneno FROM users WHERE city='$city' AND isadmin=1");
+        while($row = $res->fetch_assoc()){
+            $phoneno = $row["phoneno"];            
+            //Send SMS Code Goes Here
+            break;
+        }
         $response["success"] = "Account is Registered successfully!";
 
         $response["userid"] = $id;        

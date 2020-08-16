@@ -37,7 +37,12 @@
             echo json_encode($response);
             return;
         }catch(Exception $e){
-            $response["error"] = "We are having some troubles shortening your URL. Please try again later!";
+            //Comment below code after getting API
+            $result = $Textlocal->sendSms($numbers, $message, $sender);   
+            $_SESSION["temp_userid"] =  $id;
+            $_SESSION["otp"] = $otp;        
+            $response["success"] = "OTP has been sent!";
+            //$response["error"] = "We are having some troubles shortening your URL. Please try again later!";
             echo json_encode($response);
         }
     }else{

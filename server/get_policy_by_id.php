@@ -17,7 +17,7 @@
     $result = $mysqli->query($query);
     
     if($result){
-        $row = $result->fetch_row($result);
+        $row = $result->fetch_assoc();
         $response["success"] = "Policy data retrieved successfully!";
         $response["data"] = $row;
         echo json_encode($response);

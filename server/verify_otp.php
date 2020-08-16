@@ -12,15 +12,15 @@
         return;
     }  
     
-    if($_POST['otp']==$_SESSION['otp']){
+    //Uncomment after getting API key
+    //if($_POST['otp']==$_SESSION['otp']){
         $response["success"] = "Logged In Successfully!";
         $response["userid"] = $_SESSION["temp_userid"];
         $_SESSION["userid"] = $_SESSION["temp_userid"];
         $_SESSION["temp_userid"] = NULL;
-
         echo json_encode($repsonse);
         return;
-    }    
+    //}    
     $response["error"] = "We are having some trouble! Please try again later!";        
     echo json_encode($repsonse);
     return;

@@ -11,7 +11,7 @@
     
     if($resutl){
         $storeArray = Array();
-        while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+        while ($row = $result->fetch_assoc()) {
             $storeArray[] =  $row['id'];  
         }
         $response["success"] = "Policy IDs retrieved successfully!";
